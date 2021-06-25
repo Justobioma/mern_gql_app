@@ -11,11 +11,24 @@ Setup a cluster - _DONE_
 Install mongodb and dotenv package _DONE_
 Connect to mongodb _DONE_
 
-GRAPHQL SCHEMA
+GRAPHQL SCHEMA - _DONE_
 _User_
 _Task List_
 _ToDo_
 
 AUTHENTICATION
-_Setup signIn and signUp mutation_
+_Setup signIn and signUp mutation_ _DONE_
 _Encrypt password_
+_Save user in database on signUp_
+_Check credentials on signIn_
+_Generate session token with JWT_
+_Decode token, and add the user to context_
+
+CRUD TaskList
+_createTaskList_
+_myTaskLists_
+_updateTaskList_
+_deleteTaskList_
+_inviteUserToTaskList_
+
+CRUD ToDos
