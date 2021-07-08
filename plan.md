@@ -22,7 +22,7 @@ AUTHENTICATION
 _Setup signIn and signUp mutation_ _DONE_
 _Encrypt password_ _DONE_
 _Save user in database on signUp_ _DONE_
-_Check credentials on signIn_
+_Check credentials on signIn_ _DONE_
 _Generate session token with JWT_
 _Decode token, and add the user to context_
 
