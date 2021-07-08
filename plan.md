@@ -10,16 +10,18 @@ Create a project in Mongo Atlas; https://www.mongodb.com/cloud/atlas
 Setup a cluster - _DONE_
 Install mongodb and dotenv package _DONE_
 Connect to mongodb _DONE_
+DB_URI=mongodb+srv://admin:omagWeb123@omagcade.quiq1.mongodb.net/omagcade?retryWrites=true&w=majority;
+DB_NAME=omagcade
 
-GRAPHQL SCHEMA - _DONE_
+GRAPHQL SCHEMA (This has a Type and one/two fields) - _DONE_
 _User_
 _Task List_
 _ToDo_
 
 AUTHENTICATION
 _Setup signIn and signUp mutation_ _DONE_
-_Encrypt password_
-_Save user in database on signUp_
+_Encrypt password_ _DONE_
+_Save user in database on signUp_ _DONE_
 _Check credentials on signIn_
 _Generate session token with JWT_
 _Decode token, and add the user to context_

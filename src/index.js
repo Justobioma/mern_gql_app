@@ -13,7 +13,7 @@ const typeDefs = gql`
 
   type Mutation {
     signUp(input: SignUpInput): AuthUser!
-    signIn(input: SignUpInput): AuthUser!
+    signIn(input: SignInInput): AuthUser!
   }
 
   input SignUpInput {
@@ -23,7 +23,7 @@ const typeDefs = gql`
     avatar: String
   }
 
-  input SignInput {
+  input SignInInput {
     email: String!
     password: String!
   }
@@ -60,22 +60,37 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
+  //functions that define we should get the data for the specific fields.
+  //They have same structure as the Typedef above
   Query: {
     myTaskLists: () => [],
   },
   Mutation: {
     signUp: async (_, { input }, { db }) => {
       const hashedPassword = bcrypt.hashSync(input.password);
-      const user = {
+      const newUser = {
         ...input,
         password: hashedPassword,
       };
       // save to database
-      const result = await db.collection("Users").insert(user);
-      console.log(result);
+
+      const result = await db.collection("Users").insertOne(newUser);
+      const user = result.ops[0];
+      return {
+        user,
+        token: "token",
+      };
     },
 
-    signIn: () => {},
+    signIn: async (_, { input }, { db }) => {
+      const user = await db.collection("Users").findOne({ email: input.email });
+      console.log(user);
+    },
+  },
+
+  //defining the 'User' type
+  User: {
+    id: ({ _id, id }) => _id || id,
   },
 };
 
