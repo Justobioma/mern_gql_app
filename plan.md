@@ -18,13 +18,13 @@ _User_
 _Task List_
 _ToDo_
 
-AUTHENTICATION
+AUTHENTICATION _DONE_
 _Setup signIn and signUp mutation_ _DONE_
 _Encrypt password_ _DONE_
 _Save user in database on signUp_ _DONE_
 _Check credentials on signIn_ _DONE_
-_Generate session token with JWT_
-_Decode token, and add the user to context_
+_Generate session token with JWT_ _DONE_
+_Decode token, and add the user to context\_\_DONE_
 
 CRUD TaskList
 _createTaskList_
@@ -34,3 +34,13 @@ _deleteTaskList_
 _inviteUserToTaskList_
 
 CRUD ToDos
+_createToDo_
+_connect ToDo with Tasklist_
+_updateToDo_
+_deleteToDo_
+
+REFACTOR USING BEST PRACTICES
+_Model Layer_
+**_User Model_**
+**_TaskList Model_**
+**_ToDo Model_**
