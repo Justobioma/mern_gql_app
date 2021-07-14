@@ -24,12 +24,12 @@ _Encrypt password_ _DONE_
 _Save user in database on signUp_ _DONE_
 _Check credentials on signIn_ _DONE_
 _Generate session token with JWT_ _DONE_
-_Decode token, and add the user to context\_\_DONE_
+_\_Decode token, and add the user to contex_\__DONE_
 
 CRUD TaskList
-_createTaskList_
-_myTaskLists_
-_updateTaskList_
+_createTaskList\_\_DONE_
+_myTaskLists\_\_DONE_
+_updateTaskList__DONE_
 _deleteTaskList_
 _inviteUserToTaskList_
 
