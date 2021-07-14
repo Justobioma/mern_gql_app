@@ -35,6 +35,8 @@ const typeDefs = gql`
   type Mutation {
     signUp(input: SignUpInput): AuthUser!
     signIn(input: SignInInput): AuthUser!
+
+    createTaskList(title: String!): TaskList!
   }
 
   input SignUpInput {
@@ -71,6 +73,10 @@ const typeDefs = gql`
     todos: [ToDo!]!
   }
 
+  input TaskListInput {
+    title: String!
+  }
+
   type ToDo {
     id: ID!
     content: String!
@@ -84,10 +90,19 @@ const resolvers = {
   //functions that define we should get the data for the specific fields.
   //They have same structure as the Typedef above
   Query: {
-    myTaskLists: () => [],
+    myTaskLists: async (_, __, { db, user }) => {
+      if (!user) {
+        throw new Error("Authentication Error. Please sign in");
+      }
+
+      return await db
+        .collection("TaskList")
+        .find({ userIds: user._id })
+        .toArray();
+    },
   },
   Mutation: {
-    signUp: async (_, { input }, { db, user }) => {
+    signUp: async (_, { input }, { db }) => {
       const hashedPassword = bcrypt.hashSync(input.password);
       const newUser = {
         ...input,
@@ -124,11 +139,34 @@ const resolvers = {
         token: getToken(user),
       };
     },
+
+    createTaskList: async (_, { title }, { db, user }) => {
+      if (!user) {
+        throw new Error("Authentication Error. Please sign in");
+      }
+
+      const newTaskList = {
+        title,
+        createdAt: new Date().toISOString(),
+        userIds: [user._id],
+      };
+      const result = await db.collection("TaskList").insert(newTaskList);
+      return result.ops[0];
+    },
   },
 
   //defining the 'User' type
   User: {
     id: ({ _id, id }) => _id || id,
+  },
+
+  TaskList: {
+    id: ({ _id, id }) => _id || id,
+    progress: () => 0,
+    users: async ({ userIds }, _, { db }) =>
+      Promise.all(
+        userIds.map((userId) => db.collection("Users").findOne({ _id: userId }))
+      ),
   },
 };
 
