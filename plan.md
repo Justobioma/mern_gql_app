@@ -29,8 +29,8 @@ _\_Decode token, and add the user to contex_\__DONE_
 CRUD TaskList
 _createTaskList\_\_DONE_
 _myTaskLists\_\_DONE_
-_updateTaskList__DONE_
-_deleteTaskList_
+_updateTaskList\_\_DONE_
+_deleteTaskList_ _DONE_
 _inviteUserToTaskList_
 
 CRUD ToDos
