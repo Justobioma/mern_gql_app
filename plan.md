@@ -31,8 +31,8 @@ _createTaskList\_\_DONE_
 _myTaskLists\_\_DONE_
 _updateTaskList\_\_DONE_
 _deleteTaskList_ _DONE_
-_getTaskList__DONE_
-_inviteUserToTaskList_
+_getTaskList\_\_DONE_
+_inviteUserToTaskList__DONE_
 
 CRUD ToDos
 _createToDo_
