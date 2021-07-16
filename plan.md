@@ -36,7 +36,7 @@ _inviteUserToTaskList\_\_DONE_
 
 CRUD ToDos
 _createToDo_ _DONE_
-_connect ToDo with Tasklist_
+_connect ToDo with Tasklist_ _DONE_
 _updateToDo_
 _deleteToDo_
 
