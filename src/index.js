@@ -41,6 +41,8 @@ const typeDefs = gql`
     updateTaskList(id: ID!, title: String!): TaskList!
     deleteTaskList(id: ID!): Boolean
     addUserToTaskList(taskListId: ID!, userId: ID!): TaskList!
+
+    createToDo(content: String!, taskListId: ID!): ToDo!
   }
 
   input SignUpInput {
@@ -225,9 +227,23 @@ const resolvers = {
       taskList.userIds.push(ObjectID(userId));
       return taskList;
     },
+
+    // ToDo items
+    createToDo: async (_, { content, taskListId }, { db, user }) => {
+      if (!user) {
+        throw new Error("Authentication Error. Please sign in");
+      }
+      const newToDo = {
+        content,
+        taskListId: ObjectID(taskListId),
+        isCompleted: false,
+      };
+      const result = await db.collection("ToDo").insert(newToDo);
+      return result.ops[0];
+    },
   },
 
-  //defining the 'User' type
+  //defining the 'User' type --> to map the id from the db to the id in the gql
   User: {
     id: ({ _id, id }) => _id || id,
   },
@@ -239,6 +255,12 @@ const resolvers = {
       Promise.all(
         userIds.map((userId) => db.collection("Users").findOne({ _id: userId }))
       ),
+  },
+
+  ToDo: {
+    id: ({ _id, id }) => _id || id,
+    taskList: async ({ taskListId }, _, { db }) =>
+      await db.collection("TaskList").findOne({ _id: ObjectID(taskListId) }),
   },
 };
 

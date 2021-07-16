@@ -32,10 +32,10 @@ _myTaskLists\_\_DONE_
 _updateTaskList\_\_DONE_
 _deleteTaskList_ _DONE_
 _getTaskList\_\_DONE_
-_inviteUserToTaskList__DONE_
+_inviteUserToTaskList\_\_DONE_
 
 CRUD ToDos
-_createToDo_
+_createToDo_ _DONE_
 _connect ToDo with Tasklist_
 _updateToDo_
 _deleteToDo_
