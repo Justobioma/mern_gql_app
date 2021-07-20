@@ -39,7 +39,7 @@ _createToDo_ _DONE_
 _connect ToDo with Tasklist_ _DONE_
 _updateToDo_ _DONE_
 _deleteToDo_ _DONE_
-_calculate TaskList progress_
+_calculate TaskList progress_ _DONE_
 
 REFACTOR USING BEST PRACTICES
 _Model Layer_
