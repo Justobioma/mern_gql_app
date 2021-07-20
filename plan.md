@@ -37,7 +37,7 @@ _inviteUserToTaskList\_\_DONE_
 CRUD ToDos
 _createToDo_ _DONE_
 _connect ToDo with Tasklist_ _DONE_
-_updateToDo_
+_updateToDo_ _DONE_
 _deleteToDo_
 
 REFACTOR USING BEST PRACTICES
@@ -45,3 +45,8 @@ _Model Layer_
 **_User Model_**
 **_TaskList Model_**
 **_ToDo Model_**
+
+SERVICE LAYER
+_Authentication Service_
+_TaskList Service_
+\*\*
