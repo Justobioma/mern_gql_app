@@ -44,6 +44,7 @@ const typeDefs = gql`
 
     createToDo(content: String!, taskListId: ID!): ToDo!
     updateToDo(id: ID!, content: String, isCompleted: Boolean): ToDo!
+    deleteToDo(id: ID!): Boolean
   }
 
   input SignUpInput {
@@ -259,6 +260,15 @@ const resolvers = {
       return await db.collection("ToDo").findOne({ _id: ObjectID(data.id) });
       // console.log(result);
       // return result.ops[0];
+    },
+    deleteToDo: async (_, { id }, { db, user }) => {
+      if (!user) {
+        throw new Error("Authentication Error. Please sign in");
+      }
+      //TODO only collaborators of this task list should be able to delete
+      await db.collection("ToDo").removeOne({ _id: ObjectID(id) });
+
+      return true;
     },
   },
 
