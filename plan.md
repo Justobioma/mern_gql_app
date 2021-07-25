@@ -50,3 +50,23 @@ _Model Layer_
 SERVICE LAYER
 _Authentication Service_
 _TaskList Service_
+
+SCHEMA LAYER
+_Split schema into multiple lines_
+
+FRONTEND STACK
+_React Native_
+_Expo_
+_Typescript_
+_Apollo Client ^3.3.14_
+
+FRONTEND: TODO LIST APP IN REACT NATIVE
+_Setup expo project_ _DONE_
+_ToDo List_
+**_Checkbox component_**
+**_ToDo Item component_**
+**_Render a list of ToDos_**
+**_Add a new ToDo when user presses enter_**
+**_Remove a ToDo when user presses backspace_**
+**Title of the ToDo list**
+_Task Lists_
